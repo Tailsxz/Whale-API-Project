@@ -14,11 +14,6 @@ To get a copy of this project, you can fork the repo then clone it as your own.
 
 ### Installing
 
-Fork the Repo
+[Fork the Repo](https://github.com/octocat/Spoon-Knife)
 
-    [Forking Guide](https://github.com/octocat/Spoon-Knife)
-
-Clone the Repo
-
-    [Cloning Guide](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
-    
+[Clone the Repo](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
