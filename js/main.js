@@ -38,7 +38,7 @@ function initializeEventListener(target, event, func) {
   target.addEventListener(event, func)
 }
 
-//Lets initialize a click to our retrieveAnswerButton to show the answerP when clicked.
+//Lets initialize a click event to our retrieveAnswerButton to show the answerP when clicked.
 initializeEventListener(retrieveAnswerButton, 'click', () => answerP.style = 'display: block;')
 
 //Immediately calling our fetch once the page has loaded.

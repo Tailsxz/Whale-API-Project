@@ -1,1 +1,13 @@
+/* Custom Properties */
+:root { 
+  --color-neutral-400: #080705;
+  --color-primary-400: #A6DDDD;
+  --color-primary-700: #286382;
+}
+/* Default Layout */
+.container {
+  width: min(100% - 3rem, 1200px);
+  margin-inline: auto;
+}
+
 /* Default Styles */
