@@ -1,16 +1,38 @@
 /* Custom Properties */
 :root { 
+  /* color pallete */
   --color-neutral-400: #080705;
   --color-primary-400: #A6DDDD;
   --color-primary-700: #286382;
+  /* font sizes */
+  --fs-small: 2rem;
+  --fs-medium: 4rem;
+  --fs-large: 6rem;
 }
+/* font-size utility classes */
+
+.fs-small {
+  font-size: var(--fs-small);
+}
+
+.fs-medium {
+  font-size: var(--fs-medium);
+}
+
+.fs-large {
+  font-size: var(--fs-large);
+}
+
 /* Default Styles */
+
 body {
   background: var(--color-neutral-400);
   color: var(--color-primary-400);
+  font-family: 'Open Sans', 'Arial', san-serif;
 }
 
 /* Default Layout */
+
 .container {
   width: min(100% - 3rem, 1200px);
   margin-inline: auto;
