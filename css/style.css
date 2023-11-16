@@ -4,10 +4,24 @@
   --color-primary-400: #A6DDDD;
   --color-primary-700: #286382;
 }
+/* Default Styles */
+body {
+  background: var(--color-neutral-400);
+  color: var(--color-primary-400);
+}
+
 /* Default Layout */
 .container {
   width: min(100% - 3rem, 1200px);
   margin-inline: auto;
 }
 
-/* Default Styles */
+.container_header {
+  gap: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.container_header h1 {
+  align-self: center;
+}
