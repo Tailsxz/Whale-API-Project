@@ -20,4 +20,5 @@ To get a copy of this project, you can fork the repo then clone it as your own.
 
 ### Knowledge gained from this project
 -Storing asynchronous data into a global variable works, but console logging that data within the main code flow will output undefined. This is because the Fetch() call works asynchronously, and so will be placed in the WEB API environment, while all synchronous calls are placed in the call stack and executed. So the console.log() will execute before the fetch happens and sets the global variables value. If we do a setTimeout(), with a delay to allow our fetch call to set the variable to hold the fetched data, we can see that our assignment worked.
+
 -First use of destructuring to pull out the question/answer property of the current object array element to use within DOM manipulation.
