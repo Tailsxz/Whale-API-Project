@@ -63,12 +63,14 @@
 body {
   background: var(--color-neutral-400);
   color: var(--color-primary-400);
+  font-weight: 700;
   font-family: 'Open Sans', 'Arial', san-serif;
 }
 
 .button {
   border: 0;
   border-radius: 50rem;
+  font-weight: 400;
   font-size: var(--fs-small);
   background: var(--color-secondary-400);
   margin: var(--fs-medium) 2rem;
