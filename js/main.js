@@ -68,8 +68,30 @@ function applyEndOfGame() {
   retrieveAnswerButton.style = 'display: none;'
 } 
 
+
+function generateQuestion(cluesArray) {
+  console.log(cluesArray);
+    //now we can set click events to generate a random question/answer
+  initializeEventListener(generateQuestionButton, 'click', () => {
+    //If the user is in the process of answering a question then return immediately.
+    if (inQuestion) return;
+    //If there are no clues left, present the end of game screen.
+    if (cluesArray.length === 0) {
+      applyEndOfGame();
+      return;
+    }
+    inQuestion = true;
+    answerP.style = 'display: none';
+    const randomClue = getRandomNumber(cluesArray.length);
+    const { question, answer } = cluesArray[randomClue];
+    //Here we are applying the current clue's question/answer to our DOM, while deleting the current clue from the clues array.
+    applyQuestionAndAnswer(question, answer);
+    cluesArray.splice(randomClue, 1);
+    })
+}
+
 //fetching function to apply DOM manipulation.
-function getClues(id = '54') {
+function setClue(id = '54') {
   const url = `https://jservice.io/api/category?id=${id}`;
   console.log(url);
   fetch(url)
@@ -84,49 +106,9 @@ function getClues(id = '54') {
     .then(data => {
       return data.clues;
     })
-    .then(clues => {
-      //now we can set click events to generate a random question/answer
-      console.log(clues);
-      initializeEventListener(generateQuestionButton, 'click', () => {
-        //If the user is in the process of answering a question then return immediately.
-        if (inQuestion) return;
-        //If there are no clues left, present the end of game screen.
-        if (clues.length === 0) {
-          applyEndOfGame();
-          return;
-        }
-        inQuestion = true;
-        answerP.style = 'display: none';
-        const randomClue = getRandomNumber(clues.length);
-        const { question, answer } = clues[randomClue];
-        //Here we are applying the current clue's question/answer to our DOM, while deleting the current clue from the clues array.
-        applyQuestionAndAnswer(question, answer);
-        clues.splice(randomClue, 1);
-      })
-    })
+    .then(clues => generateQuestion(clues))
     .catch(error => console.log(error));
 }
 
 //Immediately calling our fetch once the page has loaded.
-getClues();
-
-function generateQuestion(cluesArray) {
-    //now we can set click events to generate a random question/answer
-    console.log(cluesArray);
-    initializeEventListener(generateQuestionButton, 'click', () => {
-      //If the user is in the process of answering a question then return immediately.
-      if (inQuestion) return;
-      //If there are no clues left, present the end of game screen.
-      if (cluesArray.length === 0) {
-        applyEndOfGame();
-        return;
-      }
-      inQuestion = true;
-      answerP.style = 'display: none';
-      const randomClue = getRandomNumber(cluesArray.length);
-      const { question, answer } = cluesArray[randomClue];
-      //Here we are applying the current clue's question/answer to our DOM, while deleting the current clue from the clues array.
-      applyQuestionAndAnswer(question, answer);
-      cluesArray.splice(randomClue, 1);
-    })
-}
+setClue();
