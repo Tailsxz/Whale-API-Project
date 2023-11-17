@@ -92,5 +92,7 @@ function applyQuestionAndAnswer(question, answer) {
 function applyEndOfGame() {
   questionP.innerText = 'Thanks for Playing!';
   answerP.innerText = null;
+  generateQuestionButton.style = 'display: none';
+  retrieveAnswerButton.style = 'display: none;'
 } 
 
