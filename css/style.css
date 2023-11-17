@@ -73,9 +73,10 @@ body {
   font-weight: 400;
   font-size: var(--fs-small);
   background: var(--color-secondary-400);
+  transition: box-shadow 150ms ease-in;
   margin: var(--fs-medium) 2rem;
   padding: 1rem 2rem;
-  transition: box-shadow 150ms ease-in;
+  user-select: none;
 }
 
 .button:hover,
