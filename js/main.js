@@ -33,13 +33,20 @@ const retrieveAnswerButton = document.querySelector('.button_answer');
 const questionP = document.querySelector('#question');
 const answerP = document.querySelector('#answer');
 
+//Global inQuestion variable to determine if there exists a question that is in the process of being answered.
+let inQuestion;
+
 //Function to initialize event listeners
 function initializeEventListener(target, event, func) {
   target.addEventListener(event, func)
 }
 
 //Lets initialize a click event to our retrieveAnswerButton to show the answerP when clicked.
-initializeEventListener(retrieveAnswerButton, 'click', () => answerP.style = 'display: block;')
+initializeEventListener(retrieveAnswerButton, 'click', () => {
+  answerP.style = 'display: block;';
+  inQuestion = false;
+  console.log(inQuestion);
+})
 
 //Immediately calling our fetch once the page has loaded.
 getClues();
@@ -62,16 +69,18 @@ function getClues(id = '54') {
       //now we can set click events to generate a random question/answer
       console.log(clues);
       initializeEventListener(generateQuestionButton, 'click', () => {
-        console.log(clues);
+        if (inQuestion) return;
+        if (clues.length === 0) {
+          applyEndOfGame();
+          return;
+        }
+        inQuestion = true;
         answerP.style = 'display: none';
         const randomClue = getRandomNumber(clues.length);
         const {question, answer} = clues[randomClue];
         //Here we are applying the current clue's question/answer to our DOM, while deleting the current clue from the clues array.
         applyQuestionAndAnswer(question, answer);
         clues.splice(randomClue, 1);
-        if (clues.length === 0) {
-          applyEndOfGame();
-        }
       })
     })
     .catch(error => console.log(error));
