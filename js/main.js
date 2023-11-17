@@ -19,9 +19,11 @@
 //   .then(response => response.json())
 //   .then(data => {
 //     console.log(data)
+//     do stuff;
 //   })
 //   .catch(error => {
 //     console.log(error);
+//     do stuff;
 //   })
 //Each clue will contain an answer property and question property, which will what we need to access and output on our dom elements.
 //Each time our Test knowledge button is pressed,
@@ -68,10 +70,8 @@ function applyEndOfGame() {
   retrieveAnswerButton.style = 'display: none;'
 } 
 
-
+//This function will handle generation of the question/answer within the DOM tree.
 function generateQuestion(cluesArray) {
-  console.log(cluesArray);
-    //now we can set click events to generate a random question/answer
   initializeEventListener(generateQuestionButton, 'click', () => {
     //If the user is in the process of answering a question then return immediately.
     if (inQuestion) return;
