@@ -1,6 +1,6 @@
 # Project Title
 
-Whale Trivia App
+Whale Trivia App [Live Site](https://whaletrivia.netlify.app)
 
 Second pass at using APIs, utilizing the jService.io API to grab whale trivia questions and their answers.
 
