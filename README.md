@@ -2,7 +2,7 @@
 
 Whale Trivia App 
 
-[Live Site](https://whaletrivia.netlify.app)
+API no longer in service, had to delete the website, sorry!
 
 Second pass at using APIs, utilizing the jService.io API to grab whale trivia questions and their answers.
 
