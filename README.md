@@ -1,6 +1,4 @@
-# Project Title
-
-Whale Trivia App 
+# How Whale do you know Whales?
 
 API no longer in service, had to delete the website, sorry!
 
